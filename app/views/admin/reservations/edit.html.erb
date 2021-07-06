@@ -1,0 +1,41 @@
+<main>
+  <div class= "container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h4>予約編集</h4>
+            <%= form_with model: @reservation, url: admin_reservation_path,  method: :patch, local:true do |f| %>
+                <div class="form-group">  
+                  <label for="reservation_start_time">予約開始時間</label>
+                    <%= f.datetime_field :start_time, autofocus: true, id:"inputStartTime" %>
+                </div>
+                <div class="form-group">  
+                  <label for="reservation_finish_time">予約終了時間</label>
+                    <%= f.datetime_field :finish_time, id:"inputFinishTime" %>
+                </div>  
+        
+                <div class="form-group">  
+                  <label for="reservation_manufacturer">メーカー</label>
+                    <%= f.text_field :manufacturer, id:"inputManufacturer", placeholder:"メーカー" %>
+                </div>  
+                
+                <div class="form-group">  
+                  <label for="reservation_name">車名</label>
+                    <%= f.text_field :name, id:"inputName", placeholder:"名前" %>
+                </div>  
+                <div class="form-group">  
+                  <label for="reservation_displacement">排気量</label>
+                    <%= f.number_field :displacement, id:"inputDisplacement", placeholder:"排気量" %>  
+                </div> 
+               <div class="form-group">  
+                  <label for="reservation_inquirie">その他要望事項</label>
+                    <%= f.text_area :inquirie, id:"inputInquirie", placeholder:"その他要望事項" %>  
+               </div> 
+       
+               <div class="form-group">  
+                  <%= f.submit '変更を保存' %>
+               </div>
+            <% end %>
+      </div>
+    </div>       
+  </div>        
+</main>

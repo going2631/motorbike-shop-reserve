@@ -1,0 +1,31 @@
+<main>
+  <div class= "container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 px-12 px-sm-0 mx-auto">
+        <h1>商品編集</h1>
+          <%= form_with model: @item, url: admin_item_path,  method: :patch, local:true do |f| %>
+
+             <div class="form-group"> 
+                <label for="service_name">サービス名</label> 
+                  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"サービス名" %>
+              </div>
+              <div class="form-group">
+                <label for="service_introduction">サービス内容</label>
+                  <%= f.text_area :introduction, id:"inputIntroduction",placeholder:"ここに説明文を記載します" %>
+              </div>
+              <div class="form-group">    
+                <label for="service_price">施工目安時間</label>
+                　<%= f.datetime_field:time, id:"inputTime",placeholder:"2：00" %>
+              </div>
+              <div class="form-group">    
+                <label for="service_price">目安工賃</label>
+                　<%= f.text_field:price,id:"inputPrice" placeholder:"10000" %>
+              </div>
+              
+              <div class="form-group">          
+                 <%= f.submit '新規登録' %>
+          <% end %>
+      </div>
+    </div>       
+  </div>        
+</main>

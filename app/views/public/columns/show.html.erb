@@ -1,0 +1,23 @@
+<main>
+  <div class= "container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h4></h4>
+        
+        <div class="form-group">  
+           <label for="column_id">画像</label>
+             <%= attachment_image_tag column, :image, :fill, 300, 300, format: 'jpeg' %>
+        </div>
+        <div class="form-group">  
+           <label for="column_name">タイトル</label>        
+             <%=@column.title %>
+        </div>
+        <div class="form-group">  
+           <label for="column_id_kana">本文</label>        
+             <%=@column.text %>
+        </div>
+
+      </div>
+    </div>         
+  </div>
+</main>    
