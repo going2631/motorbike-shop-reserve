@@ -20,6 +20,7 @@ class Public::ReservationsController < ApplicationController
     @reservation = Rservation.find(params[:id])
   end
   
+  # 注文後のthanksページ
   def confirm
   end
   

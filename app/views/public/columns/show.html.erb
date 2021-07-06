@@ -16,6 +16,20 @@
            <label for="column_id_kana">本文</label>        
              <%=@column.text %>
         </div>
+        
+        <% if @column.favorited_by?(current_customer) %>
+          <p>
+            <%= link_to favorite_path(@column), method: :delete do %>
+              ♥<%= @column.favorites.count %> いいね
+            <% end %>
+         </p>
+           <% else %>
+          <p>
+             <%= link_to favorites_path(@column), method: :post do %>
+              ♡<%= @column.favorites.count %> いいね
+             <% end %>
+           </p>
+        <% end %>
 
       </div>
     </div>         
