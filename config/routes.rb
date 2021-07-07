@@ -2,8 +2,16 @@ Rails.application.routes.draw do
   namespace :admin do
     
   end
-  devise_for :admins
-  
+  devise_for :admins, controllers: {
+    sessions: 'admin/admins/sessions',
+    passwords: 'admin/admins/passwords',
+    registrations: 'admin/admins/registrations'  
+  }
+  devise_for :customers, controllers: {
+    sessions: 'public/customer/sessions',
+    passwords: 'public/customer/passwords',
+    registrations: 'public/customer/registrations'  
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     root to: "homes#top"
@@ -13,11 +21,6 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :edit, :update, :destroy]
   end
   
-  
-     devise_scope :customers do
-       get "/customers/sign_up", to: "public/customers/registrations#new",
-       get "/customers/sign_in", to: "public/customers/sessions#new"
-     end
  
   
   scope module: :public do
