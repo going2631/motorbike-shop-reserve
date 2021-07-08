@@ -22,10 +22,12 @@
               <div class="form-group">
                   <%= form.hidden_field :admin_id, value: curremt_admins.id %>
               </div>
-              
-               <label for="exampleInputEmail1">タグ</label>
-                  <textarea name="tag_name" class="form-control post_form"></textarea>
-    
+              <div class="form-group">
+                <label for="column_tag">タグ</label>
+                   <%= f.text_area :tag_name, placeholder:"タグ" %>
+              </div>
+                   
+                   
               <div class="form-group">          
                  <%= f.submit '新規登録' %>
               </div>    

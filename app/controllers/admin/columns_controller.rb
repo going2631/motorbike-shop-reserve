@@ -10,7 +10,7 @@ class Admin::ColumnsController < ApplicationController
   
   def create
     @column = Column.new(column_params)
-    tag_list = params[:tag_name].split(",")
+    tag_list = params[:column][:tag_name].split(",")
     if @column.save
       @post.save_posts(tag_list)
       redirect_to admin_column_path(@column.id)

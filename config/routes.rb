@@ -30,7 +30,12 @@ Rails.application.routes.draw do
     resources :columns, onky: [:index, :show] do
       resource :favorite, only: [:create, :destroy]
     end
-    resources :reservations, only: [:new, :create, :index, :show]
+    
+    resources :services do
+       resources :reservations, only: [:new, :create, :index, :show]
+    end
+    
+   
     
     
   end
