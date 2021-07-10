@@ -27,14 +27,15 @@ Rails.application.routes.draw do
     root to: "homes#top"
     
     resources :customers, only: [:show, :edit, :update]
-    resources :columns, onky: [:index, :show] do
+    resources :columns, only: [:index, :show] do
       resource :favorite, only: [:create, :destroy]
     end
     
     resources :services do
-       resources :reservations, only: [:new, :create, :index, :show]
+       resources :reservations, only: [:new, :create, :show]
     end
     
+    resources :reservations, only: [:index]
    
     
     

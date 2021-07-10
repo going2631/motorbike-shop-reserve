@@ -1,10 +1,9 @@
 class Public::ReservationsController < ApplicationController
   
-  before_action :set_service
+  before_action :set_service, except: [:index]
   
   def new
     @reservation = Rservation.new
-   
   end
   
   def create
@@ -25,7 +24,7 @@ class Public::ReservationsController < ApplicationController
   end
   
   def index
-    @reservations = Rservation.all
+    @reservations = Reservation.all
   end
   
   def show

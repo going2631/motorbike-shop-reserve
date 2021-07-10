@@ -4,7 +4,7 @@ class CreateServices < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :introduction, null: false
       t.integer :price, null: false
-      t.time :time, null: false
+      t.time :integer, null: false
       
       t.timestamps
     end

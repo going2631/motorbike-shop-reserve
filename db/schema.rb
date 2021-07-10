@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_054244) do
     t.string "manufacturer", null: false
     t.string "name", null: false
     t.string "displacement", null: false
+    t.string "extra"
     t.datetime "start_time", null: false
     t.datetime "finish_time", null: false
     t.datetime "created_at", null: false
@@ -73,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_054244) do
     t.string "name", null: false
     t.string "introduction", null: false
     t.integer "price", null: false
-    t.time "time", null: false
+    t.time "integer", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

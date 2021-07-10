@@ -7,6 +7,7 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.string :manufacturer,null: false
       t.string :name,null: false
       t.string :displacement,null: false
+      t.string :extra
       t.datetime :start_time,null: false
       t.datetime :finish_time,null: false
 
