@@ -1,38 +1,38 @@
 <main>
-  <div class= "container">
+  <div class= "container px-5 px-sm-0">
     <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h4>予約詳細</h4>
-        
-        <div class="form-group">  
-           <label for="reservation_time">予約日時</label>
-             <%= @reservation.start_time %>
-        </div>
-        <div class="form-group">  
-           <label for="reservation_time">お客様氏名</label>
-             <%= @reservation.customer.first_name+@reservation.customer.last_name %>
-        </div>
-        <div class="form-group">  
-           <label for="reservation_time">サービス名</label>
-             <%= @reservation.service.name %>
-        </div>
-        
-        <div class="form-group">  
-           <label for="reservation_manufacturer">メーカー</label>        
-             <%= @reservation.manufacturer %>
-        </div>
-        <div class="form-group">  
-           <label for="reservation_name">車名</label>        
-             <%= @reservation.name %>
-        </div>
-        <div class="form-group">  
-           <label for="reservation_displacement">排気量</label>        
-             <%= @reservation.displacement+"ccc" %>
-        </div>        
-        <div class="form-group">  
-           <label for="reservation_inquirie">その他要望事項</label>        
-             <%= @reservation.extra %>
-        </div>
+          <table class="table">
+            <tr>
+              <th>予約日時</th>
+              <th><%= @reservation.start_time %></th>
+            </tr>
+            <tr>
+              <th>お客様氏名</th>
+              <th><%= @reservation.customer.first_name+@reservation.customer.last_name %></th>
+            </tr>
+            <tr>
+              <th>サービス名</th>
+              <th><%= @reservation.service.name %></th>
+            </tr>
+            <tr>
+              <th>メーカー</th>
+              <th><%= @reservation.manufacturer %></th>
+            </tr>
+            <tr>
+              <th>車名</th>
+              <th><%= @reservation.name %></th>
+            </tr>
+            <tr>
+              <th>排気量</th>
+              <th><%= @reservation.displacement+"cc" %></th>
+            </tr>
+            <tr>
+              <th>その他要望事項</th>
+              <th><%= @reservation.extra %></th>
+            </tr>
+          </table>
             <%= link_to "編集する", edit_admin_reservation_path(@reservation.id) %>
       </div>
     </div>         

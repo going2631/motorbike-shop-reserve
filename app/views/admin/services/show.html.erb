@@ -1,8 +1,30 @@
-<h1>サービス詳細</h1>
+<main>
+  <div class= "container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h4>サービス詳細</h4>
+          <table class="table">
+            <tr>
+               <th>サービス名</th>
+               <th><%= @service.name %></th>
+            </tr>
+            <tr>
+               <th>サービス内容</th>       
+               <th><%= @service.introduction %></th>
+            </tr>
+            <tr>
+               <th>目安工賃</th>        
+               <th><%= @service.price %></th>
+            </tr>
+            <tr>
+               <th>目安施工時間</th>     
+               <th><%= @service.time %></th>
+            </tr> 
+          </table>
+          <%= link_to "編集する", edit_admin_service_path(@service.id)%>
+     </div>
+   </div>         
+ </div>
+</main>   
 
-  <p>サービう：<%= @service.name %></p>
-  <p>商品説明：<%= @service.introduction %></p>
-  <p>目安工賃：<%= @service.price %></p>
-  <p>目安施工時間：<%= @service.time %></p>
 
-<%= link_to "編集する", edit_admin_service_path(@service.id)%>

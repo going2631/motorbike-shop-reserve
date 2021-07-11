@@ -5,15 +5,12 @@
         <h4></h4>
         
         <div class="form-group">  
-           <label for="column_id">画像</label>
              <%= attachment_image_tag @column, :image, :fill, 300, 300, format: 'jpeg' %>
         </div>
         <div class="form-group">  
-           <label for="column_name">タイトル</label>        
              <%=@column.title %>
         </div>
         <div class="form-group">  
-           <label for="column_id_kana">本文</label>        
              <%=@column.text %>
         </div>
             <%= link_to "編集する", edit_admin_column_path(@column.id) %>

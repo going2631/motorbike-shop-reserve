@@ -3,26 +3,45 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>コラム編集</h1>
-
+          <table class="table">
             <%= form_with model: @column, url: admin_column_path,  method: :patch, local:true do |f| %>
-                
-              <div class="form-group">  
-                <label for="colum_image">画像</label>
-                  <%= f.attachment_field :image %>
-              </div> 
-              <div class="form-group"> 
-                <label for="column_title">タイトル</label> 
-                  <%= f.text_field :title,autofocus: true, id:"inputTitle", placeholder:"タイトル" %>
-              </div>
-              <div class="form-group">
-                <label for="column_text">本文</label>
-                  <%= f.text_area :text,id:"inputText", placeholder:"本文" %>
-              </div>
-    
-              <div class="form-group">          
-                 <%= f.submit '新規登録' %>
-              </div>    
+              <tr>
+                <div class="form-group">  
+                  <th><label for="colum_image">画像</label></th>
+                  <th>
+                    <%= f.attachment_field :image %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="column_title">タイトル</label> </th>
+                  <th>
+                    <%= f.text_field :title,autofocus: true, id:"inputTitle", placeholder:"タイトル" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="column_text">本文</label></th>
+                  <th>
+                    <%= f.text_area :text,id:"inputText", placeholder:"本文" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="column_tag">タグ</label></th>
+                  <th>
+                    <%= f.text_area :tag_name, placeholder:"タグ" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <th><%= f.submit '変更を保存'%></th>
+              </tr>    
             <% end %>
+          </table>
       </div>
     </div>       
   </div>        

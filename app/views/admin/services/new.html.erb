@@ -2,31 +2,46 @@
   <div class= "container px-5 px-sm-0">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <h1>商品新規登録</h1>
-
+        <h4>商品新規登録</h4>
+          <table class="table">
             <%= form_with model: @service, url: admin_services_path,  method: :post, local:true do |f| %>
-                
-              <div class="form-group"> 
-                <label for="service_name">サービス名</label> 
-                  <%= f.text_field :name, placeholder:"サービス名" %>
-              </div>
-              <div class="form-group">
-                <label for="service_introduction">サービス内容</label>
-                  <%= f.text_area :introduction, placeholder:"ここに説明文を記載します" %>
-              </div>
-              <div class="form-group">    
-                <label for="service_price">施工目安時間</label>
-                　<%= f.text_field:time, placeholder:"2：00" %>
-              </div>
-              <div class="form-group">    
-                <label for="service_price">目安工賃</label>
-                　<%= f.text_field:price, placeholder:"10000" %>
-              </div>
-              
-              <div class="form-group">          
-                 <%= f.submit '新規登録' %>
-              </div>    
+              <tr>
+                <div class="form-group">  
+                  <th><label for="service_name">サービス名</label></th>
+                  <th>
+                    <%= f.text_field :name, placeholder:"サービス名" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="service_introduction">サービス内容</label></th>
+                  <th>
+                    <%= f.text_area :introduction, placeholder:"ここに説明文を記載します" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="service_price">施工目安時間</label></th>
+                  <th>
+                    <%= f.text_field:time, placeholder:"半角整数で入力"%>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="service_price">目安工賃</label></th>
+                  <th>
+                    <%= f.text_field:price, placeholder:"10000" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <th><%= f.submit '新規登録' %></th>
+              </tr>
             <% end %>
+          </table>
       </div>
     </div>       
   </div>        
