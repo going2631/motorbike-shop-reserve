@@ -18,10 +18,6 @@
                 <label for="column_text">本文</label>
                   <%= f.text_area :text,id:"inputText", placeholder:"本文" %>
               </div>
-              
-              <div class="form-group">
-                  <%= form.hidden_field :admin_id, value: @curremt_admins.id %>
-              </div>
     
               <div class="form-group">          
                  <%= f.submit '新規登録' %>

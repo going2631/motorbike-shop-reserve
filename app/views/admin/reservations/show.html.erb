@@ -1,13 +1,22 @@
 <main>
-  <div class= "container px-5 px-sm-0">
+  <div class= "container">
     <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
         <h4>予約詳細</h4>
         
         <div class="form-group">  
            <label for="reservation_time">予約日時</label>
-             <%= @reservation.start_time+"〜"+@reservation.finish_time %>
+             <%= @reservation.start_time %>
         </div>
+        <div class="form-group">  
+           <label for="reservation_time">お客様氏名</label>
+             <%= @reservation.customer.first_name+@reservation.customer.last_name %>
+        </div>
+        <div class="form-group">  
+           <label for="reservation_time">サービス名</label>
+             <%= @reservation.service.name %>
+        </div>
+        
         <div class="form-group">  
            <label for="reservation_manufacturer">メーカー</label>        
              <%= @reservation.manufacturer %>
@@ -22,7 +31,7 @@
         </div>        
         <div class="form-group">  
            <label for="reservation_inquirie">その他要望事項</label>        
-             <%= @reservation.inquirie %>
+             <%= @reservation.extra %>
         </div>
             <%= link_to "編集する", edit_admin_reservation_path(@reservation.id) %>
       </div>

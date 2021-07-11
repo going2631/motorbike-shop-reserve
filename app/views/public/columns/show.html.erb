@@ -5,27 +5,24 @@
         <h4></h4>
         
         <div class="form-group">  
-           <label for="column_id">画像</label>
-             <%= attachment_image_tag column, :image, :fill, 300, 300, format: 'jpeg' %>
+             <%= attachment_image_tag @column, :image, :fill, 300, 300, format: 'jpeg' %>
+        </div>
+        <div class="form-group">         
+             <%= @column.title %>
         </div>
         <div class="form-group">  
-           <label for="column_name">タイトル</label>        
-             <%=@column.title %>
-        </div>
-        <div class="form-group">  
-           <label for="column_id_kana">本文</label>        
-             <%=@column.text %>
+             <%= @column.text %>
         </div>
         
         <% if @column.favorited_by?(current_customer) %>
           <p>
-            <%= link_to favorite_path(@column), method: :delete do %>
+            <%= link_to column_favorite_path(@column), method: :delete do %>
               ♥<%= @column.favorites.count %> いいね
             <% end %>
          </p>
            <% else %>
           <p>
-             <%= link_to favorites_path(@column), method: :post do %>
+             <%= link_to column_favorite_path(@column), method: :post do %>
               ♡<%= @column.favorites.count %> いいね
              <% end %>
            </p>

@@ -31,11 +31,12 @@ Rails.application.routes.draw do
       resource :favorite, only: [:create, :destroy]
     end
     
-    resources :services do
+    resources :services ,only:[:index, :show]do
        resources :reservations, only: [:new, :create, :show]
     end
     
     resources :reservations, only: [:index]
+    get '/reservations/confirm', 'reservations#confirm'
    
     
     

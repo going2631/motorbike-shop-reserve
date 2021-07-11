@@ -5,7 +5,7 @@ class Public::ColumnsController < ApplicationController
   end
   
   def show
-    @colum = Column.find(params[:id])
+    @column = Column.find(params[:id])
   end
   
 end

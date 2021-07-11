@@ -9,10 +9,11 @@ class Admin::ColumnsController < ApplicationController
   end
   
   def create
-    @column = Column.new(column_params)
     tag_list = params[:column][:tag_name].split(",")
+    @column = Column.new(column_params)
+    @column.admin_id = current_admin.id
     if @column.save
-      @post.save_posts(tag_list)
+      @column.save_column(tag_list)
       redirect_to admin_column_path(@column.id)
     else
       render "new"
@@ -30,7 +31,7 @@ class Admin::ColumnsController < ApplicationController
   
   def update
     @column = Column.find(params[:id])
-    if @colum.update(column_params)
+    if @column.update(column_params)
       redirect_to admin_column_path(@column.id)
     else
       render "edit"
@@ -46,7 +47,7 @@ class Admin::ColumnsController < ApplicationController
   private
   
   def column_params
-    params.require(:column).permit(:admin_id, :image_id, :title, :text )
+    params.require(:column).permit(:admin_id, :image, :title, :text)
   end
   
 end

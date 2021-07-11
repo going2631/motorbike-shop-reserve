@@ -1,0 +1,56 @@
+<main>
+  <div class= "container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>予約登録</h1>
+          <table class="table">
+            <%= form_with model: @reservation, url: service_reservations_path,  method: :post, local:true do |f| %>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="reservation_manufacturer">メーカー</label></th>
+                  <th>
+                    <%= f.text_field :manufacturer, placeholder:"例）HONDA" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="reservation_name">車名</label></th>
+                  <th>
+                    <%= f.text_area :name, placeholder:"例）CB400SF" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="reservation_displacement">排気量</label></th>
+                  <th>
+                    <%= f.text_field :displacement, placeholder:"400(数字のみ入力)" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="reservation_">その他要望事項</label></th>
+                  <th>
+                    <%= f.text_area:extra, placeholder:"要望事項" %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">  
+                  <th><label for="reservation_start_time">希望時間</label></th>
+                  <th>
+                    <%= f.datetime_field :start_time %>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <th><%= f.submit '予約を完了'%></th>
+              </tr>  
+            <% end %>
+          </table>
+      </div>
+    </div>       
+  </div>        
+</main>

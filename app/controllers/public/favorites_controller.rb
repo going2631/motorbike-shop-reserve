@@ -1,8 +1,8 @@
 class Public::FavoritesController < ApplicationController
   
   def create
-    column = Column.find(params[:column.id])
-    favorite = cuurent_customer.favorites.new(column_id: column.id)
+    column = Column.find(params[:column_id])
+    favorite = current_customer.favorites.new(column_id: column.id)
     favorite.save
     redirect_to  column_path(column)
   end

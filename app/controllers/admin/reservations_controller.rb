@@ -15,10 +15,21 @@ class Admin::ReservationsController < ApplicationController
   
   def update
     @reservation = Reservation.find(params[:id])
+    @service = Service.find(@reservation.service_id)
+    @reservation.finish_time =  @reservation.start_time + (@service.time.hours)
+    
     if @reservation.update(reservation_params)
-      redirect_to admin_reservation _path(@reservation.id)
+      redirect_to admin_reservation_path(@reservation.id)
     else
       render "edit"
     end
   end
+  
+  private
+  
+  def reservation_params
+    params.require(:reservation).permit(:service_id,:customer_id, :manufacturer, :name, :displacement, :start_time, :finish_time)
+  end
+  
+  
 end

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_054244) do
 
   create_table "columns", force: :cascade do |t|
     t.integer "admin_id", null: false
-    t.integer "image_id", null: false
+    t.string "image_id", null: false
     t.string "title", null: false
     t.text "text", null: false
     t.datetime "created_at", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_054244) do
     t.string "name", null: false
     t.string "introduction", null: false
     t.integer "price", null: false
-    t.time "integer", null: false
+    t.integer "time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

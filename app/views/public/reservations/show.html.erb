@@ -1,0 +1,31 @@
+<main>
+  <div class= "container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h4>予約詳細</h4>
+          <table class="table">
+            <tr>
+               <th>予約年月日</th>
+               <th><%=@reservation.start_time %></th>
+            </tr>
+            <tr>
+               <th>メーカー</th>       
+               <th><%=@reservation.manufacturer %></th>
+            </tr>
+            <tr>
+               <th>車名</th>        
+               <th><%=@reservation.name %></th>
+            </tr>
+            <tr>
+               <th>排気量</th>     
+               <th><%=@reservation.displacement %></th>
+            </tr>        
+            <tr>
+               <th>その他要望事項</th>    
+               <th><%=@reservation.extra %>></th>
+            </tr>
+          </table>
+     </div>
+   </div>         
+ </div>
+</main>   

@@ -1,0 +1,26 @@
+<main>
+  <div class= "container">
+    <div class="row">
+      <div class="col-sm-10 col-md-10 col-lg-10  mx-auto">
+        <h1>予約</h1>
+         <table class="table table-hover table-inverse">
+           <thead>
+             <tr>
+               <th>来店日時</th>
+               <th>施工サービス</th>
+               <th></th>
+             </tr>
+            </thead>
+           <tbody>
+             <% @reservations.each do |reservation|%>
+               <tr>
+                 <td><%= reservation.start_time %></td>
+                 <td><%= reservation.service.name %></td>
+                 <td><%= link_to "詳細", service_reservation_path(reservation.service.id,reservation.id)%></td>
+               </tr>
+             <% end %>
+           </tbody> 
+         </table>
+     </div>         
+   </div>
+</main>

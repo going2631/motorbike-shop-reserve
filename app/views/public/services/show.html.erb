@@ -1,0 +1,30 @@
+<main>
+  <div class= "container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h4>サービス詳細</h4>
+          <table class="table">
+            <tr>
+               <th>サービス名</th>
+               <th><%= @service.name %></th>
+            </tr>
+            <tr>
+               <th>サービス内容</th>       
+               <th><%= @service.introduction %></th>
+            </tr>
+            <tr>
+               <th>目安工賃</th>        
+               <th><%= @service.price %></th>
+            </tr>
+            <tr>
+               <th>目安施工時間</th>     
+               <th><%= @service.time %></th>
+            </tr> 
+          </table>
+          <%= link_to "予約する", new_service_reservation_path(@service.id) %>
+     </div>
+   </div>         
+ </div>
+</main>   
+
+

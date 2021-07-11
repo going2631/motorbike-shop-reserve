@@ -1,0 +1,34 @@
+<main>
+  <div class= "container ">
+    <div class="row　align-items-center h-auto d-inline-block" style="width: 100%" >
+      <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <h1></h1>
+        <span class="text-center d-flex justify-content-center">
+          ようこそ、MotorBikeへ<br>
+          このサイトは、バイクの点検、修理の予約受付サイトになります。<br>
+          また、店舗スタッフによるコラムも公開中<br>
+          ぜひ皆様のバイクライフのお役立てください<br>
+          ※予約には会員登録が必要になります。
+        </span>
+      </div>
+    </div>
+    <div class="row　align-items-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <h4>新着コラム</h4>
+          <div class = "d-flex flex-wrap justify-content-around">
+            <% @columns.each do |column|%>
+              <ul class="list-unstyled">
+               <li><%= link_to attachment_image_tag(column, :image, :fill, 100, 100), column_path(column.id) %></li>
+               <li><%= column.title %></li>
+              </li>
+            <% end %>
+          </div>
+          
+            <%= link_to "全ての商品を見る", columns_path%>
+
+      </div>
+    </div>       
+  </div>        
+</main>
+
+

@@ -1,33 +1,32 @@
 <main>
-  <div class= "container px-5 px-sm-0">
+  <div class= "container">
     <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <div class="col-lg-6">
         <h4>会員詳細</h4>
-        
-        <div class="form-group">  
-           <label for="customer_id">会員ID</label>
-             <%=@customer.id %>
-        </div>
-        <div class="form-group">  
-           <label for="customer_name">氏名</label>        
-             <%=@customer.first_name+@customer.last_name %>
-        </div>
-        <div class="form-group">  
-           <label for="customer_id_kana">フリガナ</label>        
-             <%=@customer.first_name_kana+@customer.last_name_kana %>
-        </div>
-        <div class="form-group">  
-           <label for="container_telephone_number">電話番号</label>        
-             <%=@customer.telephone_number %>
-        </div>        
-        <div class="form-group">  
-           <label for="customer_emai">メールアドレス</label>        
-             <%=@customer.email %>
-        </div>
-            <%= link_to "編集する",  edit_customer_path(@customer.id) %>
-            <%= link_to "注文履歴一覧を見る", reservations_path %>
-
-      </div>
-    </div>         
-  </div>
+          <table class="table">
+            <tr>
+               <th>会員ID</th>
+               <th><%=@customer.id %></th>
+            </tr>
+            <tr>
+               <th>氏名</th>       
+               <th><%=@customer.first_name+@customer.last_name %></th>
+            </tr>
+            <tr>
+               <th>フリガナ</th>        
+               <th><%=@customer.first_name_kana+@customer.last_name_kana %></th>
+            </tr>
+            <tr>
+               <th>電話番号</th>     
+               <th><%=@customer.telephone_number %></th>
+            </tr>        
+            <tr>
+               <th>メールアドレス</th>    
+               <th><%=@customer.email %></th>
+            </tr>
+          </table>
+        <%= link_to "編集する",  edit_customer_path(@customer.id) %>
+     </div>
+   </div>         
+ </div>
 </main>    
