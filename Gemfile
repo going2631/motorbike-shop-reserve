@@ -70,3 +70,4 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 
 gem 'simple_calendar', '~> 2.0'
+

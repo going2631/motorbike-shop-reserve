@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     root to: "homes#top"
+    get "/columns/search" => 'columns#search'
     resources :customers, only: [:index, :edit, :update, :show]
     resources :services
     resources :columns
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
     resources :columns, only: [:index, :show] do
       resource :favorite, only: [:create, :destroy]
     end
+    get "/columns/search" => 'columns#search'
     
     resources :services ,only:[:index, :show]do
        resources :reservations, only: [:new, :create, :show]

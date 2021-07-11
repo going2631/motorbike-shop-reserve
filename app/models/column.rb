@@ -13,6 +13,9 @@ class Column < ApplicationRecord
     favorites.where(customer_id: customer.id).exists?
   end
   
+  def self.search(keyword)
+    where(["title like? OR text like?", "%#{keyword}%", "%#{keyword}%"])
+  end
   
   def save_column(savepost_tags)
 

@@ -2,6 +2,10 @@ class Admin::ColumnsController < ApplicationController
   
   def index
     @columns = Column.all
+    if params[:keyword] != nil
+      @columns = Column.search(params[:keyword])
+      @keyword = params[:keyword]
+    end
   end
   
   def new
@@ -43,6 +47,13 @@ class Admin::ColumnsController < ApplicationController
     @column.destroy
     redirect_to admin_colums_path
   end
+  
+  def search
+    @columns = Column.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+  
   
   private
   
