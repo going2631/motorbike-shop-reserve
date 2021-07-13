@@ -1,4 +1,8 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :correct_customer
+  
+  
   
   def show
     @customer = Customer.find(params[:id])
@@ -21,6 +25,13 @@ class Public::CustomersController < ApplicationController
   
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :telephone_number )
+  end
+  
+  def correct_costomer
+        @customer = Customer.find(params[:id])
+    unless @customer.id == current_customer.id
+      redirect_to new_customer_session_path
+    end
   end
   
 end

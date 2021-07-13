@@ -1,5 +1,6 @@
 class Public::ReservationsController < ApplicationController
-  
+  before_action :authenticate_customer!
+  before_action :correct_reservation
   before_action :set_service, except: [:index, :confirm]
   
   def new
@@ -41,9 +42,16 @@ class Public::ReservationsController < ApplicationController
     params.require(:reservation).permit(:service_id,:customer_id, :manufacturer, :name, :displacement, :start_time, :finish_time)
   end
   
-  
-  
   def set_service
      @service = Service.find(params[:service_id])
   end
+  
+  def correct_reservation
+        @reservation = Reservation.find(params[:id])
+    unless @reservation.customer.id == current_user.id
+      redirect_to new_customer_session_path
+    end
+  end
+  
+  
 end
