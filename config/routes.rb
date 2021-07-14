@@ -27,17 +27,21 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     
-    resources :customers, only: [:show, :edit, :update]
+    resources :customers, only: [:show, :edit, :update] do
+      resources :reservations, only: [:index]
+    end
+    
     resources :columns, only: [:index, :show] do
       resource :favorite, only: [:create, :destroy]
     end
+    
     get "/columns/search" => 'columns#search'
     
     resources :services ,only:[:index, :show]do
        resources :reservations, only: [:new, :create, :show]
     end
     
-    resources :reservations, only: [:index]
+    
     get '/reservations/confirm', 'reservations#confirm'
    
     

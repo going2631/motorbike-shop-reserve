@@ -1,6 +1,6 @@
 class Public::ReservationsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :correct_reservation
+  before_action :correct_reservation, only: [:show]
   before_action :set_service, except: [:index, :confirm]
   
   def new
@@ -25,7 +25,9 @@ class Public::ReservationsController < ApplicationController
   end
   
   def index
-    @reservations = Reservation.all
+    @customer = Customer.find(params[:customer_id])
+    
+    @reservations = Reservation.where(customer_id: @customer.id)
   end
   
   def show
