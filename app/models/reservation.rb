@@ -4,6 +4,13 @@ class Reservation < ApplicationRecord
   belongs_to :service
   
   validate :reservation_validation
+  validates :service_id, presence: true
+  validates :customer_id, presence: true
+  validates :manufacturer, presence: true
+  validates :name, presence: true
+  validates :displacement, presence: true
+  validates :start_time, presence: true
+  validates :finish_time, presence: true
   
   # 予約システム時間指定のバリデーション
     def reservation_validation

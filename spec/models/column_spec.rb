@@ -1,10 +1,61 @@
-require 'rails_helper' # rails_helperを使うために必要です。何も考えず書いてください
-describe Column do # Postモデルについて
-  describe '#create' do # createアクションについて
-    it "contentがない場合は登録できないこと" do # テストの確認内容を記述
-      post = Post.new(content: "") # Postモデルのインスタンス（データ）を作成
-      post.valid? # インスタンスを保存する際に、バリデーションにより保存ができない状態であるかを確かめる
-      expect(post.errors[:content]).to include("can't be blank") # エラー文に"can't be blank"が含まれるかどうかを判定
+require 'rails_helper'
+
+RSpec.describe 'columnモデルのテスト', type: :model do
+
+describe Column do
+  describe '#create' do
+
+    it "admin_idがない場合は登録できないこと" do
+      column = build(:column, admin_id: "")
+      column.valid?
+      expect(column.errors[:admin_id]).to include("を入力してください")
+    end
+
+    it "image_idがない場合は登録できないこと" do
+      column = build(:column, image_id: "")
+      column.valid?
+      expect(column.errors[:image_id]).to include("を入力してください")
+    end
+    
+    it "titleがない場合は登録できないこと" do
+      column = build(:column, title: "")
+      column.valid?
+      expect(column.errors[:title]).to include("を入力してください")
+    end
+    
+    it "textがない場合は登録できないこと" do
+      column = build(:column, text: "")
+      column.valid?
+      expect(column.errors[:text]).to include("を入力してください")
+    end
+    
+  end
+  
+   describe '#update' do
+
+     it "admin_idがない場合は更新できないこと" do
+       column = build(:column, admin_id: "")
+       column.valid?
+       expect(column.errors[:admin_id]).to include("を入力してください")
+     end
+
+     it "image_idがない場合は更新できないこと" do
+       column = build(:column, image_id: "")
+       column.valid?
+        expect(column.errors[:image_id]).to include("を入力してください")
+     end
+    
+      it "titleがない場合は更新できないこと" do
+       column = build(:column, title: "")
+       column.valid?
+       expect(column.errors[:title]).to include("を入力してください")
+      end
+    
+     it "textがない場合は更新できないこと" do
+        column = build(:column, text: "")
+        column.valid?
+        expect(column.errors[:text]).to include("を入力してください")
+      end
     end
   end
 end

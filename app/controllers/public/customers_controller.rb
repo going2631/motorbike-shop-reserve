@@ -27,7 +27,7 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :telephone_number )
   end
   
-  def correct_costomer
+  def correct_customer
         @customer = Customer.find(params[:id])
     unless @customer.id == current_customer.id
       redirect_to new_customer_session_path

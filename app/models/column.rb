@@ -8,6 +8,13 @@ class Column < ApplicationRecord
   attachment :image
   
   has_many :favorites, dependent: :destroy
+  
+  validates :admin_id, presence: true
+  validates :image_id, presence: true
+  validates :title, presence: true
+  validates :text, presence: true
+  
+
 
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
