@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      reservation: 予約
+    attributes:
+      reservation:
+        service_id: サービスID
+        customer_id: カスタマーID
+        manufacturer: メーカー名
+        name: 車種
+        displacement: 排気量
+        extra: 追記事項
+        start_time: 予約開始時間
+        finish_time: 予約終了時間
+        

@@ -14,11 +14,18 @@ class Public::ReservationsController < ApplicationController
     
     # 以下2行予約終了時間の自動算出
     @service = Service.find(params[:service_id])
+    if @reservation.start_time == nil
+      @reservation.errors.add(:start_time, 'が指定されていません。')
+      render "new"
+      return
+    end
+    
     @reservation.finish_time =  @reservation.start_time + (@service.time.hours)
     
     if @reservation.save
       redirect_to reservations_confirm_path
     else
+      # byebug
       render "new"
     end
     

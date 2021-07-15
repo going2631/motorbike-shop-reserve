@@ -3,6 +3,16 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>予約登録</h1>
+        
+        <% if @reservation.errors.any? %>
+          <li>
+              <ul><%= @reservation.errors.count %>件のエラーが発生しました</ul>
+            <% @reservation.errors.full_messages.each do |message| %></ul>
+              <ul><%= message %></ul>
+            <% end %>
+          </li>
+        <% end %>
+        
           <table class="table">
             <%= form_with model: @reservation, url: service_reservations_path,  method: :post, local:true do |f| %>
               <tr>
