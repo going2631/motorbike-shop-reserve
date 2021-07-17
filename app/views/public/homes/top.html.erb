@@ -1,6 +1,6 @@
 <main>
-  <div class= "container ">
-    <div class="row　align-items-center h-auto d-inline-block" style="width: 100%" >
+  <div class= "container">
+    <div class="row  align-items-center h-auto d-inline-block" style="width: 100%" >
       <div class="col-sm-12 col-md-12 col-lg-12 ">
         <h1></h1>
         <span class="text-center d-flex justify-content-center">
@@ -12,23 +12,23 @@
         </span>
       </div>
     </div>
-    <div class="row　align-items-center">
+    <div class="row align-items-center">
       <div class="col-sm-12 col-md-12 col-lg-12 ">
         <h4>新着コラム</h4>
-          <div class = "d-flex flex-wrap justify-content-around">
+          <div class = "d-flex flex-row bd-highlight mb-3 flex-wrap justify-content-around">
             <% @columns.each do |column|%>
-              <ul class="list-unstyled">
-               <li><%= link_to attachment_image_tag(column, :image, :fill, 100, 100), column_path(column.id) %></li>
-               <li><%= column.title %></li>
-              </li>
+              <div class="p-2 bd-highlight">  
+                <ul class="list-unstyled">
+                  <li><%= link_to attachment_image_tag(column, :image, :fill, 100, 100), column_path(column.id) %></li>
+                  <li><%= column.title %></li>
+                </uli>
+              </div>
             <% end %>
           </div>
           
-            <%= link_to "全ての商品を見る", columns_path%>
+          <%= link_to "全ての商品を見る", columns_path%>
 
       </div>
     </div>       
   </div>        
 </main>
-
-
