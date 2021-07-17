@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>コラム編集</h1>
+         <%= form_with model: @column, url: admin_column_path,  method: :patch, local:true do |f| %>
           <table class="table">
-            <%= form_with model: @column, url: admin_column_path,  method: :patch, local:true do |f| %>
               <tr>
                 <div class="form-group">  
                   <th><label for="colum_image">画像</label></th>
@@ -33,15 +33,21 @@
                 <div class="form-group">  
                   <th><label for="column_tag">タグ</label></th>
                   <th>
-                    <%= f.text_area :tag_name, placeholder:"タグ" %>
+                    <%= f.text_area :text,id:"inputText", placeholder:"本文" %>
                   </th>
                 </div>
               </tr>
+              
+              
+              <div class="form-group">
+                
+                   
+              </div>
               <tr>
                 <th><%= f.submit '変更を保存'%></th>
               </tr>    
-            <% end %>
           </table>
+        <% end %>
       </div>
     </div>       
   </div>        

@@ -10,7 +10,7 @@ class Column < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   validates :admin_id, presence: true
-  validates :image_id, presence: true
+  validates :image, presence: true
   validates :title, presence: true
   validates :text, presence: true
   

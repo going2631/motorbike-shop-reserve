@@ -13,8 +13,6 @@ class Customer < ApplicationRecord
   validates :last_name_kana, presence: true
   validates :telephone_number, presence: true
   validates :email, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
   
   
   def favorited_by?(customer)

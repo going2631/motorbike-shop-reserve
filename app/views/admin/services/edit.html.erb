@@ -1,10 +1,10 @@
 <main>
-  <div class= "container">
+  <div class= "container px-5 px-sm-0">
     <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12 px-12 px-sm-0 mx-auto">
+      <div class="col-sm-12 col-md-12 col-lg-12 px-5 px-sm-0 mx-auto">
         <h1>サービス編集</h1>
-          <table class="table">
-            <%= form_with model: @service, url: admin_service_path,  method: :patch, local:true do |f| %>
+          <%= form_with model: @service, url: admin_service_path,  method: :patch, local:true do |f| %>
+            <table class="table">
               <tr>
                 <div class="form-group">  
                   <th><label for="service_name">サービス名</label></th>
@@ -38,10 +38,10 @@
                 </div>
               </tr>
               <tr>
-                <th><%= f.submit '新規登録' %></th>
+                <th><%= f.submit '情報編集' %></th>
               </tr>
-          <% end %>
-        </table>
+          </table>
+        <% end %>
       </div>
     </div>       
   </div>        
