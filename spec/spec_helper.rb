@@ -13,7 +13,6 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-
 require 'capybara/rspec'
 
 RSpec.configure do |config|
@@ -24,6 +23,7 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :solenium_chrome_headless
   end
+
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
