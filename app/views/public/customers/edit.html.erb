@@ -4,8 +4,8 @@
       <div class="col-sm-12 col-md-12 col-lg-12 px-5 px-sm-0 mx-auto">
 
         <h1>会員情報編集</h1>
-        <table class="table">
-          <%= form_with model: @customer,url: customer_path(@customer.id), method: :patch, local:true do |f| %>
+        <%= form_with model: @customer,url: customer_path(@customer.id), method: :patch, local:true do |f| %>
+          <table class="table">
             <tr>
               <div class="form-group">  
                 <th><label for="customer_name">氏名</label></th>
@@ -39,8 +39,8 @@
             <tr>
               <th><%= f.submit '編集内容を保存'%></th>
             </tr>
+          </table>
         <% end %>
-        </table>
       </div>
     </div>       
   </div>        

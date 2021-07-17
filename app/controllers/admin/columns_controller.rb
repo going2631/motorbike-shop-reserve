@@ -17,10 +17,13 @@ class Admin::ColumnsController < ApplicationController
     tag_list = params[:column][:tag_name].split(",")
     @column = Column.new(column_params)
     @column.admin_id = current_admin.id
+    #@column.image_id =  column_params[:image]
+    
     if @column.save
       @column.save_column(tag_list)
       redirect_to admin_column_path(@column.id)
     else
+      byebug
       render "new"
     end
     
