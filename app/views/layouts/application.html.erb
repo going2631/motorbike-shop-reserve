@@ -30,45 +30,45 @@
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li class = "p-2 nav-item text-white ">
-                  <%= link_to "マイページ", customer_path(current_customer.id) , class:"text-white"%>
+                  <%= link_to "マイページ", customer_path(current_customer.id) , class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "予約一覧", customer_reservations_path(current_customer.id) %>
+                  <%= link_to "予約一覧", customer_reservations_path(current_customer.id), class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "サービス一覧", services_path %>
+                  <%= link_to "サービス一覧", services_path, class:"text-white"  %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "コラム一覧", columns_path %>
+                  <%= link_to "コラム一覧", columns_path, class:"text-white"  %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete%>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"text-white" %>
                 </li>
               <% elsif admin_signed_in? %>  
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "予約一覧",  admin_root_path %>
+                  <%= link_to "予約一覧",  admin_root_path, class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "サービス一覧",  admin_services_path %>
+                  <%= link_to "サービス一覧",  admin_services_path, class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "会員一覧", admin_customers_path %>
+                  <%= link_to "会員一覧", admin_customers_path, class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "コラム一覧",  admin_columns_path %>
+                  <%= link_to "コラム一覧",  admin_columns_path, class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "ログアウト", destroy_admin_session_path ,method: :delete%>
+                  <%= link_to "ログアウト", destroy_admin_session_path ,method: :delete, class:"text-white" %>
                 </li>
               <% else %>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "サービス一覧", services_path %>
+                  <%= link_to "サービス一覧", services_path, class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "新規登録" ,new_customer_registration_path %>
+                  <%= link_to "新規登録" ,new_customer_registration_path, class:"text-white" %>
                 </li>
                 <li class = "p-2 nav-item text-white">
-                  <%= link_to "ログイン",  new_customer_session_path, data: {turbolinks: false} %>
+                  <%= link_to "ログイン",  new_customer_session_path, data: {turbolinks: false} , class:"text-white" %>
                 </li>
               <% end %>
             </ul>
