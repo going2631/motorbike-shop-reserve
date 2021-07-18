@@ -22,6 +22,8 @@
             </tr> 
           </table>
           <%= link_to "編集する", edit_admin_service_path(@service.id)%>
+          <%= link_to "削除する", admin_service_path(@service.id), method: :delete%>
+     </div>
      </div>
    </div>         
  </div>

@@ -36,6 +36,13 @@ class Admin::ServicesController < ApplicationController
         end
     end
     
+    def destroy
+        @service = Service.find(params[:id])
+        @service.destroy
+        
+        redirect_to admin_services_path
+    end
+    
     private
     def service_params
         params.require(:service).permit(:name, :introduction, :price, :time)
