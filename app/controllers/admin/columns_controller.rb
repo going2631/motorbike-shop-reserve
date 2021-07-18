@@ -49,7 +49,7 @@ class Admin::ColumnsController < ApplicationController
   def destroy
     @column = Column.find(params[:id])
     @column.destroy
-    redirect_to admin_colums_path
+    redirect_to admin_columns_path
   end
   
   def search
