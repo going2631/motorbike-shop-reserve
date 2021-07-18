@@ -38,7 +38,7 @@
 - 管理者：予約管理、会員情報管理、サービス管理、コラムの投稿編集
 
 ## 設計書
-https://docs.google.com/spreadsheets/d/1eoaBBaNjdsX0vcFHHouYQDcRoa1s3TFkO_g6SbzzpUQ/edit#gid=977420151
+https://docs.google.com/spreadsheets/d/1DM49k5s8f7xg01HFk__EV2RsBzywwB_d/edit#gid=549108681
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1KNC_pLn1mmi8wqUR4DqSAMDdbpycyEbBrPm6pobCyLg/edit#gid=0
