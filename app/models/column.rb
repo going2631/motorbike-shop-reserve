@@ -24,9 +24,15 @@ class Column < ApplicationRecord
     where(["title like? OR text like?", "%#{keyword}%", "%#{keyword}%"])
   end
   
-  def save_column(savepost_tags)
+  # 
 
-    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+
+  def save_column(savepost_tags)
+    current_tags = if self.tag.any?
+                     self.tags.pluck(:name)
+                   else
+                     []
+                   end
     # savepost_tagsとはなにが廃いているのか
     old_tags = current_tags - savepost_tags
     
