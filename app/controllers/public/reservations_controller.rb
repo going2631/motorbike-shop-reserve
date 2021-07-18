@@ -26,7 +26,6 @@ class Public::ReservationsController < ApplicationController
   
   def index
     @customer = Customer.find(params[:customer_id])
-    
     @reservations = Reservation.where(customer_id: @customer.id)
   end
   
@@ -48,6 +47,7 @@ class Public::ReservationsController < ApplicationController
      @service = Service.find(params[:service_id])
   end
   
+   # 以下ユーザー制限用コード
   def correct_reservation
         @reservation = Reservation.find(params[:id])
     unless @reservation.customer.id == current_user.id
