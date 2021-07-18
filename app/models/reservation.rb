@@ -12,7 +12,7 @@ class Reservation < ApplicationRecord
   validates :start_time, presence: true
   validates :finish_time, presence: true
   
-  # 予約システム時間指定のバリデーション
+  # 予約システム時間指定のバリデーション（時間重複）
     def reservation_validation
       reservation = Reservation.where('start_time <= ? AND finish_time >= ?', finish_time, start_time)
       

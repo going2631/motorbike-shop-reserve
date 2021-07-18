@@ -3,6 +3,8 @@ class Admin::ColumnsController < ApplicationController
   
   def index
     @columns = Column.all
+    
+    # 以下３行検索機能についてのコード
     if params[:keyword] != nil
       @columns = Column.search(params[:keyword])
       @keyword = params[:keyword]
@@ -14,16 +16,16 @@ class Admin::ColumnsController < ApplicationController
   end
   
   def create
+    # 下記タグ作成用コードcolumnモデルにて使用するtag_ぃstの作成
     tag_list = params[:column][:tag_name].split(",")
     @column = Column.new(column_params)
     @column.admin_id = current_admin.id
-    #@column.image_id =  column_params[:image]
     
     if @column.save
+      # 下記タグ作成用コード
       @column.save_column(tag_list)
       redirect_to admin_column_path(@column.id)
     else
-      byebug
       render "new"
     end
     
@@ -50,12 +52,6 @@ class Admin::ColumnsController < ApplicationController
     @column = Column.find(params[:id])
     @column.destroy
     redirect_to admin_columns_path
-  end
-  
-  def search
-    @columns = Column.search(params[:keyword])
-    @keyword = params[:keyword]
-    render "index"
   end
   
   

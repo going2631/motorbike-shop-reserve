@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   validates :telephone_number, presence: true
   validates :email, presence: true
   
-  
+  # いいね機能用のコード
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
   end
