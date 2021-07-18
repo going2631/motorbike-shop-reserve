@@ -28,7 +28,7 @@ class Column < ApplicationRecord
 
 
   def save_column(savepost_tags)
-    current_tags = if self.tag.any?
+    current_tags = if self.tags.any?
                      self.tags.pluck(:name)
                    else
                      []
